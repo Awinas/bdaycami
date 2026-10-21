@@ -56,9 +56,9 @@
         '<span class="lk lk4">✦</span><span class="lk lk5">🌷</span><span class="lk lk6">♡</span>' +
         '<div class="lock-card">' +
           '<button class="gift" id="gift" aria-label="A locked birthday gift">🎁</button>' +
-          '<div class="eyebrow">sealed with love · opens on her birthday</div>' +
-          '<h1 class="lock-title">Not quite yet…</h1>' +
-          '<p class="lead">Something soft and lovely is waiting for you, Ishami.</p>' +
+          '<div class="eyebrow">sealed with love · bukak masa lahirmuy</div>' +
+          '<h1 class="lock-title">Dak lagi tunggu sat…</h1>' +
+          '<p class="lead">Something is waiting for you, Ishami ;)</p>' +
           '<div class="countdown lock-count" aria-live="off">' +
             '<div class="time-box"><strong id="lkD">--</strong><span>Days</span></div>' +
             '<div class="time-box"><strong id="lkH">--</strong><span>Hours</span></div>' +
