@@ -7,8 +7,8 @@ $$('[data-burst]').forEach(el=>el.addEventListener('click',e=>burst(e.clientX||i
    Put your mp3 files in the "music" folder, then list them here (in play order).
    Leave the list empty to use the built-in tiny tune instead. */
 const SONGS=[
-  // 'music/song1.mp3',
-  // 'music/song2.mp3',
+  'music/song1.mp3',
+  'music/song2.mp3',
 ];
 const MUSIC_KEY='bdayMusic';
 let audioCtx=null,musicOn=false,musicTimer=null,player=null,track=0,synthOn=false;
