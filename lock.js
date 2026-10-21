@@ -49,7 +49,7 @@
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function build() {
-    document.title = 'Not yet… 🎁 | For Ishami ♡';
+    document.title = 'Sabaq sat… 🎁 | For Ishami ♡';
     document.body.innerHTML =
       '<div class="lock-screen" role="main">' +
         '<span class="lk lk1">🌷</span><span class="lk lk2">🐈</span><span class="lk lk3">📚</span>' +
@@ -72,7 +72,7 @@
 
     testBadge();
     var start = Date.now(), done = false;
-    var msgs = ['Sabaqqq, birthday girl 🌷', 'Kucing tengah jaga hang. 🐈', 'Sikig lagiii… 📚', 'No peeking laa! 🎀', 'Sabaq naa sabaq ✨'];
+    var msgs = ['Sabaqqq, birthday girl 🌷', 'Kucing tengah jaga hang. 🐈', 'Sikit lagiii… 📚', 'No peeking laa! 🎀', 'Sabaq naa sabaq ✨'];
     var mi = 0;
     var gift = document.getElementById('gift');
     gift.addEventListener('click', function () {
@@ -84,7 +84,7 @@
       var d = TARGET - Date.now();
       if (d <= 0) {
         if (done) return; done = true;
-        document.getElementById('lkMsg').textContent = 'Happy birthday, Ishami! Opening your surprise… 🎂';
+        document.getElementById('lkMsg').textContent = 'Happy Birthday, Camiiiii! Opening your surprise niii… 🎂';
         ['lkD','lkH','lkM','lkS'].forEach(function (id) { document.getElementById(id).textContent = '00'; });
         setTimeout(function () { location.reload(); }, 1600);
         return;
