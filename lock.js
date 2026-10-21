@@ -29,7 +29,7 @@
   function testBadge() {
     if (!testMode) return;
     var b = document.createElement('a');
-    b.href = '?test=reset';
+    b.className = 'test-badge'; b.href = '?test=reset';
     b.textContent = '🧪 TEST MODE · click to reset';
     b.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:9999;padding:8px 12px;border-radius:999px;background:#4e354d;color:#fff;font:600 12px DM Sans,sans-serif;text-decoration:none;opacity:.9';
     document.body.appendChild(b);
@@ -43,7 +43,7 @@
   var root = document.documentElement;
   root.classList.add('locked');
   var st = document.createElement('style');
-  st.textContent = 'html.locked body>*:not(.lock-screen){display:none!important}';
+  st.textContent = 'html.locked body>*:not(.lock-screen):not(.music-fab):not(.test-badge){display:none!important}';
   document.head.appendChild(st);
 
   function pad(n) { return String(n).padStart(2, '0'); }

@@ -70,3 +70,10 @@ h1{background:linear-gradient(120deg,#c9457f,#a56ad8);-webkit-background-clip:te
 .lk{position:absolute;user-select:none;font-size:2.6rem;animation:drift 6s ease-in-out infinite;filter:drop-shadow(0 6px 8px #d879a533);opacity:.9}
 .lk1{top:9%;left:8%}.lk2{top:16%;right:9%;animation-delay:-2s}.lk3{bottom:12%;left:10%;animation-delay:-4s;font-size:3rem}.lk4{bottom:20%;right:12%;animation-delay:-1s}.lk5{top:52%;left:3%;animation-delay:-3s;font-size:2rem}.lk6{top:44%;right:4%;animation-delay:-5s;font-size:2rem;color:#d85d91}
 @media(max-width:560px){.lk{font-size:1.9rem}.lock-count{gap:7px}.lock-count .time-box{padding:12px 4px;border-radius:16px}.lock-count .time-box strong{font-size:1.5rem}.lock-count .time-box span{font-size:.58rem;letter-spacing:.06em}}
+
+/* floating music button */
+.music-fab{position:fixed;right:14px;bottom:14px;z-index:9998;max-width:calc(100vw - 28px);padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:#ffffffe6;backdrop-filter:blur(10px);color:var(--plum);font-weight:600;font-size:.82rem;box-shadow:0 12px 28px #b67ba233;transition:transform .2s,box-shadow .2s}
+.music-fab:hover{transform:translateY(-2px);box-shadow:0 16px 34px #b67ba24d}
+.music-fab[aria-pressed=true]{background:var(--grad);color:#fff;border-color:transparent}
+.music-fab.waiting{animation:pulse 1.6s ease-in-out infinite;background:#fce7f0;border-color:#e9a3c0;color:var(--rose)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}

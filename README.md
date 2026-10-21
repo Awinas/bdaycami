@@ -1,6 +1,6 @@
 # A Birthday for Ishami
 
-A cute, responsive, multi-page birthday website celebrating tulips 🌷, cats 🐈 and books 📚.
+A cute, responsive, multi-page birthday website celebrating tulips 🌷, cats 🐈 and wishes ✨.
 
 ## Birthday lock
 Every page is locked behind a countdown until **23 October 2026, 00:00 (Malaysia time, UTC+8)**.
@@ -25,6 +25,7 @@ Test mode is ignored on the live website, so visitors can't use it to skip the l
 
 ## Music
 1. Put your `.mp3` files in the `music/` folder (no spaces in file names).
-2. Open `script.js`, find `const SONGS=[ ... ]` and list them, e.g. `'music/our-song.mp3'`.
-3. The "♫ Play music" button in the top bar plays them in order and loops.
-   If the list is empty, it plays the built-in tiny tune instead.
+2. Open `music.js`, find `var SONGS = [ ... ]` and list them, e.g. `'music/our-song.mp3',`.
+3. Music starts automatically on every page, including the countdown screen, from the first song.
+   If the browser blocks sound, a pulsing "Tap to play music" button appears; the first tap starts it.
+   If the list is empty, a built-in tiny tune plays instead.
