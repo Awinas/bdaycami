@@ -55,8 +55,8 @@
         '<span class="lk lk1">🌷</span><span class="lk lk2">🐈</span><span class="lk lk3">📚</span>' +
         '<span class="lk lk4">✦</span><span class="lk lk5">🌷</span><span class="lk lk6">♡</span>' +
         '<div class="lock-card">' +
-          '<button class="gift" id="gift" aria-label="A locked birthday gift">🎁</button>' +
-          '<div class="eyebrow">sealed with love · bukak masa lahirmuy</div>' +
+          '<button class="gift" id="gift" aria-label="A locked birthday">🎁</button>' +
+          '<div class="eyebrow">sealed with love · bukak masa lahirmuu</div>' +
           '<h1 class="lock-title">Dak lagi tunggu sat…</h1>' +
           '<p class="lead">Something is waiting for you, Ishami ;)</p>' +
           '<div class="countdown lock-count" aria-live="off">' +
@@ -72,7 +72,7 @@
 
     testBadge();
     var start = Date.now(), done = false;
-    var msgs = ['Patience, birthday girl 🌷', 'The cats are guarding it. 🐈', 'Just a little longer… 📚', 'No peeking! 🎀', 'Good things are worth the wait ✨'];
+    var msgs = ['Sabaqqq, birthday girl 🌷', 'Kucing tengah jaga hang. 🐈', 'Sikig lagiii… 📚', 'No peeking laa! 🎀', 'Sabaq naa sabaq ✨'];
     var mi = 0;
     var gift = document.getElementById('gift');
     gift.addEventListener('click', function () {
