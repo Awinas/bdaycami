@@ -49,7 +49,7 @@
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function build() {
-    document.title = 'Sabaq sat… 🎁 | For Ishami ♡';
+    document.title = 'Sabaq sat na… 🎁 | For Ishami ♡';
     document.body.innerHTML =
       '<div class="lock-screen" role="main">' +
         '<span class="lk lk1">🌷</span><span class="lk lk2">🐈</span><span class="lk lk3">📚</span>' +
@@ -58,7 +58,7 @@
           '<button class="gift" id="gift" aria-label="A locked birthday">🎁</button>' +
           '<div class="eyebrow">sealed with love · bukak masa lahirmuu</div>' +
           '<h1 class="lock-title">Dak lagi tunggu sat…</h1>' +
-          '<p class="lead">Something is waiting for you, Ishami ;)</p>' +
+          '<p class="lead">Something is waiting for you, Ishami :)</p>' +
           '<div class="countdown lock-count" aria-live="off">' +
             '<div class="time-box"><strong id="lkD">--</strong><span>Days</span></div>' +
             '<div class="time-box"><strong id="lkH">--</strong><span>Hours</span></div>' +
@@ -66,7 +66,7 @@
             '<div class="time-box"><strong id="lkS">--</strong><span>Seconds</span></div>' +
           '</div>' +
           '<div class="lock-bar"><span id="lkBar"></span></div>' +
-          '<p class="tiny" id="lkMsg">Opens on <b>23 October 2026</b>, at midnight 🌙</p>' +
+          '<p class="tiny" id="lkMsg">Bukak time <b>23 October 2026</b>, at midnight  tauuuu :)</p>' +
         '</div>' +
       '</div>';
 
