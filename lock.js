@@ -3,8 +3,42 @@
 (function () {
   var BDAY_ISO = '2026-10-23T00:00:00+08:00';
   var TARGET = new Date(BDAY_ISO).getTime();
+
+  /* ---- TEST MODE (only works on your own computer, never on the live site) ----
+     open any page with  ?test=15   → pretends the birthday arrives in 15 seconds
+                         ?test=0    → pretends it is already the birthday (unlocked)
+                         ?test=reset → back to the real date                       */
+  var isLocal = /^(localhost|127\.0\.0\.1|\[::1\]|)$/.test(location.hostname);
+  var testMode = false;
+  if (isLocal) {
+    try {
+      var params = new URLSearchParams(location.search), q = params.get('test');
+      if (q === 'reset') sessionStorage.removeItem('bdayTest');
+      else if (q !== null && q !== '' && !isNaN(+q)) sessionStorage.setItem('bdayTest', String(Date.now() + (+q) * 1000));
+      if (q !== null) {                              // clean the URL so a reload doesn't restart the test
+        params.delete('test');
+        var qs = params.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+      }
+      var saved = sessionStorage.getItem('bdayTest');
+      if (saved) { TARGET = +saved; testMode = true; }
+    } catch (e) {}
+  }
   window.BDAY_TARGET = TARGET;
-  if (Date.now() >= TARGET) return;                 // birthday has arrived → site is open
+
+  function testBadge() {
+    if (!testMode) return;
+    var b = document.createElement('a');
+    b.href = '?test=reset';
+    b.textContent = '🧪 TEST MODE · click to reset';
+    b.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:9999;padding:8px 12px;border-radius:999px;background:#4e354d;color:#fff;font:600 12px DM Sans,sans-serif;text-decoration:none;opacity:.9';
+    document.body.appendChild(b);
+  }
+
+  if (Date.now() >= TARGET) {                       // birthday has arrived → site is open
+    if (testMode) document.addEventListener('DOMContentLoaded', testBadge);
+    return;
+  }
 
   var root = document.documentElement;
   root.classList.add('locked');
@@ -36,6 +70,7 @@
         '</div>' +
       '</div>';
 
+    testBadge();
     var start = Date.now(), done = false;
     var msgs = ['Patience, birthday girl 🌷', 'The cats are guarding it. 🐈', 'Just a little longer… 📚', 'No peeking! 🎀', 'Good things are worth the wait ✨'];
     var mi = 0;
