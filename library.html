@@ -1,12 +1,28 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff4f8"><meta name="description" content="A cute birthday garden made with tulips, cats, books, and love."><title>The Book Nook | For Ishami ♡</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><script src="lock.js"></script><link rel="stylesheet" href="style.css"></head><body>
-<div class="topbar"><nav class="nav"><a class="brand" href="index.html"><span>♡</span> for Ishami</a><div class="navlinks"><a class="" href="index.html">Home</a><a class="" href="letter.html">Love Letter</a><a class="" href="garden.html">Tulip Garden</a><a class="" href="cats.html">Cat Café</a><a class="active" href="library.html">Book Nook</a><a class="" href="wishes.html">Wish Jar</a><button class="music-btn" id="musicBtn" aria-pressed="false">♫ Tiny tune</button></div></nav></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff4f8"><meta name="description" content="A cute birthday garden made with tulips, cats, books, and love."><title>The Cozy Corner | For Ishami ♡</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><script src="lock.js"></script><link rel="stylesheet" href="style.css"></head><body>
+<div class="topbar"><nav class="nav"><a class="brand" href="index.html"><span>♡</span> for Ishami</a><div class="navlinks"><a class="" href="index.html">Home</a><a class="" href="letter.html">Love Letter</a><a class="" href="garden.html">Tulip Garden</a><a class="" href="cats.html">Cat Café</a><a class="active" href="library.html">Cozy Corner</a><a class="" href="wishes.html">Wish Jar</a><button class="music-btn" id="musicBtn" aria-pressed="false">♫ Play music</button></div></nav></div>
 
-<main class="section wrap"><div class="section-head"><div class="kicker">page four · quiet pages, warm drinks</div><h2>The little book nook 📚</h2><p class="muted">For the girl who can turn “one more chapter” into a whole evening.</p></div><div class="book-list">
-<div class="book"><div class="book-cover">🌷</div><div><h3>The Art of Blooming</h3><p>For the days you need a reminder that growth can be gentle.</p></div></div>
-<div class="book"><div class="book-cover">🐈</div><div><h3>The Cat Who Stole Tuesday</h3><p>A very important fictional mystery involving one suspicious paw.</p></div></div>
-<div class="book"><div class="book-cover">🌙</div><div><h3>Somewhere Between the Stars</h3><p>For late-night reading and getting lost in another universe.</p></div></div>
-<div class="book"><div class="book-cover">💌</div><div><h3>Letters for a Soft Heart</h3><p>For the kind of soul that notices small things and feels deeply.</p></div></div>
-</div><section class="section"><div class="panel"><div class="section-head"><div class="kicker">tiny reading tracker</div><h2>Your next reading adventure</h2><p class="muted">Set a page goal and watch your little progress bar fill up.</p></div><label for="pagesTotal">Total pages in your book</label><input id="pagesTotal" type="number" min="1" max="5000" value="300" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;margin:8px 0 18px;background:white;color:var(--ink)"><label for="pagesRead">Pages you've read: <strong id="pagesReadValue">0</strong></label><input id="pagesRead" type="range" min="0" max="300" value="0" style="width:100%;accent-color:#d85d91"><div class="progress"><span id="readingProgress"></span></div><p class="tiny" id="progressPct">0%</p><p class="muted">Remember: reading for joy counts. Reading slowly counts. Rereading your favourite chapter absolutely counts.</p></div></section><div class="actions"><a class="btn" href="wishes.html">Open the wish jar ✨</a></div></main>
+<main class="section wrap"><div class="section-head"><div class="kicker">page four · soft &amp; cozy</div><h2>The cozy corner ☕</h2><p class="muted">Blanket on, phone down, a cat somewhere nearby. Pick your vibe for tonight.</p></div>
+
+<div class="panel"><div class="kicker" style="text-align:center">how are you feeling tonight?</div>
+<div class="quiz-options" id="moods"><button data-mood="cozy">☕ Cozy</button><button data-mood="rainy">🌧️ Rainy day</button><button data-mood="late">🌙 Late night</button><button data-mood="happy">🌷 Happy</button></div>
+<div class="wish-output" id="moodOutput">Tap a mood and I’ll plan your evening. ♡</div></div>
+
+<div class="book-list" style="margin-top:22px">
+<div class="book"><div class="book-cover">🧸</div><div><h3>A Blanket Burrito</h3><p>Mandatory. Wrap up until only your nose is showing.</p></div></div>
+<div class="book"><div class="book-cover">🧋</div><div><h3>Something Yummy to Sip</h3><p>Hot chocolate, milk tea, or whatever makes you smile.</p></div></div>
+<div class="book"><div class="book-cover">🕯️</div><div><h3>A Softly Glowing Candle</h3><p>Instant cozy. Smells like a good evening.</p></div></div>
+<div class="book"><div class="book-cover">🐈</div><div><h3>One Cat (Optional)</h3><p>Not required, but strongly recommended. Purring included.</p></div></div>
+</div>
+
+<section class="section"><div class="panel"><div class="section-head"><div class="kicker">tonight’s mini mission</div><h2>Build your cozy night</h2><p class="muted">Tap everything you’d like tonight and watch the cozy meter fill up.</p></div>
+<div class="quiz-options" id="cozyItems"><button data-cozy>🧸 Blanket</button><button data-cozy>🧋 Warm drink</button><button data-cozy>🕯️ Candle</button><button data-cozy>🍪 Snacks</button><button data-cozy>🐈 Cat cuddles</button></div>
+<div class="progress"><span id="cozyBar"></span></div><p class="cat-status" id="cozyMsg">Cozy meter: 0%. Tap something to start. 🌱</p></div></section>
+
+<section class="section" style="padding-top:0"><div class="panel"><div class="section-head"><div class="kicker">can’t decide what to read?</div><h2>Pick a story vibe 📖</h2><p class="muted">No titles, no homework. Just a feeling to look for next.</p></div>
+<div class="wish-output" id="readOutput">Press the button for tonight’s story vibe. ♡</div>
+<div class="actions"><button class="btn" id="readBtn">Surprise me ✨</button></div></div></section>
+
+<div class="actions"><a class="btn" href="wishes.html">Open the wish jar ✨</a></div></main>
 <footer class="footer">made with ♡, tulips, cats & bookish dreams · just for Ishami</footer>
 <script src="script.js"></script></body></html>

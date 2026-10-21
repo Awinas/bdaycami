@@ -22,3 +22,9 @@ Test mode is ignored on the live website, so visitors can't use it to skip the l
 
 ## Icons
 `favicon.svg`, `favicon.ico` and `apple-touch-icon.png` (a pink tulip).
+
+## Music
+1. Put your `.mp3` files in the `music/` folder (no spaces in file names).
+2. Open `script.js`, find `const SONGS=[ ... ]` and list them, e.g. `'music/our-song.mp3'`.
+3. The "♫ Play music" button in the top bar plays them in order and loops.
+   If the list is empty, it plays the built-in tiny tune instead.
