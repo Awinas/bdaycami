@@ -6,9 +6,10 @@
    "Tap to play music" and the song starts from the beginning on her first tap. */
 (function () {
   var SONGS = [
-    'music/song1.mp3',
+    'music/song3.mp3',
+	'music/song1.mp3',
     'music/song2.mp3',
-	'music/song3.mp3',
+	
   ];
 
   var KEY = 'bdayMusic';
