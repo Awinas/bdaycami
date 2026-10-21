@@ -11,7 +11,7 @@
   ];
 
   var KEY = 'bdayMusic';
-  var player = null, track = 0, wantOn = true, btn = null;
+  var player = null, track = 0, wantOn = true, btn = null, failed = {};
   var audioCtx = null, synthOn = false, synthTimer = null, unlockBound = false;
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
@@ -34,11 +34,18 @@
       player.src = SONGS[track];
       if (wantOn) player.play().catch(function () {});
     });
+    player.addEventListener('playing', function () { label('♫ Pause music', 'on'); });
     player.addEventListener('error', function () {
-      var bad = SONGS[track];
-      player = null; wantOn = false;
-      label('⚠ Can’t find ' + bad, 'err');
-      console.warn('Music file not found or unreadable:', bad);
+      failed[track] = true;
+      console.warn('Music file not found or unreadable:', SONGS[track]);
+      if (Object.keys(failed).length >= SONGS.length) {      // every song failed
+        player = null; wantOn = false;
+        label('⚠ Music files not found – check the names', 'err');
+        return;
+      }
+      track = (track + 1) % SONGS.length;                      // skip to the next song
+      player.src = SONGS[track];
+      if (wantOn) player.play().catch(function () {});
     });
     player.src = SONGS[track];
     return player;
@@ -72,7 +79,7 @@
     try { await p.play(); label('♫ Pause music', 'on'); save(); }
     catch (e) {
       if (e && e.name === 'NotAllowedError') { label('♫ Tap to play music', 'wait'); bindUnlock(); }
-      else if (player) { label('⚠ Can’t play this file', 'err'); console.warn('Music error:', e); }
+      else console.warn('Music error:', e);                    // missing files are handled by the error listener
     }
   }
   function stop() {
