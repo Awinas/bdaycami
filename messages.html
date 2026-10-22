@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff4f8"><meta name="description" content="A quiet place to leave a message for Fakhrul."><title>Nota Khas Buat Fakhrul | Buat Ishami ♡</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><script src="music.js"></script><link rel="stylesheet" href="style.css"></head><body>
+<div class="topbar"><nav class="nav"><a class="brand" href="index.html"><span>♡</span> untuk Ishami</a><div class="navlinks"><a class="" href="index.html">Home</a><a class="" href="letter.html">Warkah Buatmu</a><a class="" href="garden.html">Taman Tulip</a><a class="" href="cats.html">Rumah Kucing</a><a class="" href="wishes.html">Wish Jar</a><a class="" href="adventure.html">Tempat Bermain</a><a class="active" href="messages.html" aria-current="page">Nota Khas</a></div></nav></div>
+<main class="section wrap"><div class="section-head"><div class="kicker">sudut kecil untuk luahkan isi hati</div><h2>Ada apa-apa awak nak pesan kat saya? 💌</h2><p class="muted">Apa-apa fikiran, rahsia, soalan, atau kata yang hang simpan selama ni. Tulis ja, tak perlu ayat sempurna pun.</p></div>
+<div class="panel private-note-panel"><div class="private-note-icon">✉️</div><label for="privateMessage">Pesanan hang untuk Fakhrul</label><textarea id="privateMessage" rows="8" placeholder="Fakhrul, ada benda saya nak cerita..."></textarea><div class="actions"><button class="btn" id="sendMessage" type="button">Hantar kepada Fakhrul ♡</button><button class="btn secondary" id="clearMessage" type="button">Padam</button></div><div id="messageStatus" class="cat-status" aria-live="polite">Tulis pesanan hang, kemudian dia akan hantaq auto kepada Fakhrul pi kat emel dia.</div><div id="sealedNote" class="sealed-note hidden"><div class="kicker">pesanan termeterai</div><p id="sealedText"></p></div><p class="tiny privacy-note"><strong>Privasi:</strong> pesanan akan dihantar melalui Formspree ke e-mel. Boleh hantaq apa ii ja, direct to emal guna API Formspree</p></div>
+<div class="actions"><a class="btn secondary" href="index.html">Kembali ke taman hari lahir 🌷</a></div></main>
+<footer class="footer">made with ♡, tulips, cats & little wishes · just for Ishami</footer>
+<script>
+(function(){
+ const input=document.getElementById('privateMessage'),status=document.getElementById('messageStatus'),sealed=document.getElementById('sealedNote'),sealedText=document.getElementById('sealedText');
+ const endpoint='https://formspree.io/f/mkjodven';
+ try{input.value=localStorage.getItem('ishamiPrivateNote')||'';}catch(e){}
+ document.getElementById('sendMessage').addEventListener('click',async function(){
+   const value=input.value.trim();
+   if(!value){status.textContent='Tulis sesuatu dulu. Satu ayat pun dah cukup. ♡';return;}
+   const button=this; button.disabled=true; button.textContent='Sedang menghantar…'; status.textContent='Sedang menghantar pesanan hang melalui servis borang…';
+   const data=new FormData(); data.append('message',value); data.append('_subject','A birthday note for Fakhrul ♡'); data.append('page','Birthday Garden private note');
+   try{
+     const response=await fetch(endpoint,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+     if(response.ok){status.textContent='Pesanan hang dah dihantar! Cuba semak peti masuk e-mel nanti. ♡';sealedText.textContent=value;sealed.classList.add('show');try{localStorage.setItem('ishamiPrivateNote',value);}catch(e){}}
+     else {let detail='Please try again in a moment.';try{const result=await response.json();if(result.errors)detail=result.errors.map(x=>x.message).join(' ');}catch(e){}status.textContent='Pesanan tak berjaya dihantar. '+detail+' If this is your first submission, check whether Formspree requires email confirmation.';}
+   }catch(e){status.textContent='Tak dapat sambung. Periksa internet dan cuba lagi.';}
+   finally{button.disabled=false;button.textContent='Hantar kepada Fakhrul ♡';}
+ });
+ document.getElementById('sealMessage').addEventListener('click',function(){const value=input.value.trim();if(!value){status.textContent='Tulis sesuatu dulu. Satu ayat pun dah cukup. ♡';return;}try{localStorage.setItem('ishamiPrivateNote',value);status.textContent='Disimpan dalam peranti ni sahaja. Tekan “Hantar kepada Fakhrul” untuk e-melkan.';}catch(e){status.textContent='Could not save in this browser, but your note is still here until you leave this page.';}sealedText.textContent=value;sealed.classList.add('show');});
+ document.getElementById('copyMessage').addEventListener('click',async function(){if(!input.value.trim()){status.textContent='Belum ada pesanan untuk disalin.';return;}try{await navigator.clipboard.writeText(input.value);status.textContent='Dah disalin. ♡';}catch(e){input.focus();input.select();status.textContent='Select the text above and copy it manually.';}});
+ document.getElementById('clearMessage').addEventListener('click',function(){input.value='';try{localStorage.removeItem('ishamiPrivateNote');}catch(e){}sealed.classList.remove('show');status.textContent='Pesanan dalam peranti ni dah dipadam.';});
+})();
+</script><script src="script.js"></script></body></html>
